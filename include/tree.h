@@ -28,19 +28,16 @@ class Tree {
 std::string Tree::storage(int y) const {
     if (p.size() >= y) {
         return p[y];
-    }
-    else {
+    } else {
         return "";
     }
 }
-
 void Tree::dopfnc(Node* root, std::string line) {
     if (root->list.size()) {
         if (root->value != '#') {
             line = line + root->value;
         }
-        int m = 0;
-        for (m < root->list.size(); m++) {
+        for (int m = 0; m < root->list.size(); m++) {
             dopfnc(root->list[m], line);
         }
     } else {
@@ -60,7 +57,6 @@ void Tree::build(Node* root, std::vector<char> y) {
             }
         }
     }
-    
     for (int m = 0; m < y.size(); m++) {
         Node* pace = new Node;
         root->list.push_back(pace);
